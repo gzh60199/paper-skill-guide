@@ -11,7 +11,7 @@ Paper Skill Guide 是一个面向中文学术写作的 Codex 插件。告诉它�
 **1. 安装插件。** 在装有 Git、支持 `codex plugin` 命令的终端里执行以下两行。本插件安装在本地 Codex 中，无需部署 Web 服务。需要安装 Codex 时，可参阅 [Codex CLI 官方指南](https://developers.openai.com/codex/cli/)。
 
 ```sh
-codex plugin marketplace add gzh60199/paper-skill-guide --ref v1.0.0
+codex plugin marketplace add gzh60199/paper-skill-guide --ref v1.1.0
 codex plugin add paper-skill-guide@paper-skill-guide
 ```
 
@@ -35,9 +35,15 @@ codex plugin add paper-skill-guide@paper-skill-guide
 
 同一套流程也适用于修订和汇报。例如，“我有初稿和审稿意见，你来选技能，先整理意见再起草逐条回复”，或“用筛选记录整理综述，再把结论和图表做成组会 PPT”。最终交付物取决于你提供的材料和可用的执行技能。
 
+## 写作时有模板怎么办？
+
+> 请按随附的 Word 模板写一份课程成长报告。我有每周记录，老师要求用两个例子说明我的变化。
+
+这项任务需要组织材料和写正文。即使模板是 `.doc`、`.docx` 或 `.pdf`，插件也先推荐合适的写作技能。推荐时可只读查看模板里的必填栏目和评分要求。你选定方案后，选材、组织结构、起草与修订都沿用所选技能，最终文件的字体、行距、页边距等按模板处理。若你只要求“正文已经定稿，按模板调整行距和页码”，即可直接排版。
+
 ## 安装方式与验证
 
-快速开始中的命令安装 [v1.0.0 发布版](https://github.com/gzh60199/paper-skill-guide/releases/tag/v1.0.0)。若想从开发分支安装，把第一行的 `--ref v1.0.0` 换成 `--ref main`。
+快速开始中的命令安装 [v1.1.0 发布版](https://github.com/gzh60199/paper-skill-guide/releases/tag/v1.1.0)。若想从开发分支安装，把第一行的 `--ref v1.1.0` 换成 `--ref main`。
 
 **从本地源码安装。** 适合希望阅读或修改推荐规则的用户。选择这种方式时，从包含 `.agents/plugins/marketplace.json` 的仓库根目录登记本地来源。
 
@@ -61,6 +67,12 @@ codex plugin list --marketplace paper-skill-guide --json
 插件读取当前工作目录可见的个人技能、项目技能和其他插件提供的技能，并检查入围项的实际说明。它通常比较三个左右有实质差异的选项。只有一个合适时就推荐一个，没有合适候选时会说明缺口。你可以使用自己已有的技能库，候选技能由你自行安装和启用。
 
 日常使用直接读取会话清单。清单不完整或刚安装过技能时，插件可以用随附的 Python 3 脚本，通过本机 `codex app-server` 查询技能名、说明和入口路径。只有这项刷新功能需要 Python 3 和 PATH 中的 Codex CLI。[推荐规则](plugins/paper-skill-guide/skills/choose-paper-skills/SKILL.md) · [清单查询脚本](plugins/paper-skill-guide/skills/choose-paper-skills/scripts/list_enabled_skills.py)
+
+## 可选：把写作流程设为个人默认
+
+想让新对话更稳定地进入这个流程，可以把下面一段追加到自己的 `~/.codex/AGENTS.md`，保存后新开对话。若设置了 `CODEX_HOME`，使用该目录下的 `AGENTS.md`。普通安装不会修改这份全局文件。
+
+> 写课程论文、综述或课程成长报告时，先用 `$paper-skill-guide:choose-paper-skills` 推荐技能，即使附有模板也如此。我点名技能、选定方案或请你代选时，直接执行。内容工作沿用选定技能，排版按我提供的模板。只需排版或解释时直接处理。
 
 ## 常见问题
 

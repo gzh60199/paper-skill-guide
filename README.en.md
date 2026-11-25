@@ -11,7 +11,7 @@ Paper Skill Guide helps you choose a Codex skill for academic writing, with a fo
 **1. Install the plugin.** In a terminal with Git and a Codex CLI that supports `codex plugin`, run the two commands below. The plugin runs in your local Codex installation, so setup requires no web service. For Codex setup, see the [official CLI guide](https://developers.openai.com/codex/cli/).
 
 ```sh
-codex plugin marketplace add gzh60199/paper-skill-guide --ref v1.0.0
+codex plugin marketplace add gzh60199/paper-skill-guide --ref v1.1.0
 codex plugin add paper-skill-guide@paper-skill-guide
 ```
 
@@ -35,9 +35,15 @@ You could reply, **“Start with the first option, then use the second to narrow
 
 The same workflow applies to revisions and presentations. Try “I have a draft and reviewer comments. Choose the skills, group the comments, then draft a point-by-point response.” Or ask “Use my screening records to organize the review, then turn the findings and figures into slides for a lab meeting.” What can be delivered depends on the materials you share and the skills available to do the work.
 
+## What if the assignment comes with a template?
+
+> Use the attached Word template to write a course reflection report. I have weekly notes, and my instructor wants two examples that show how I changed over the term.
+
+This request involves choosing evidence and writing the report. Even when the template is a `.doc`, `.docx`, or `.pdf` file, the guide starts by comparing writing skills. It can inspect the template in read-only mode to identify required fields or grading criteria. Once you choose, the selected skills guide the use of evidence, organization, drafting, and revision. The template determines fonts, line spacing, margins, and other layout details. If your text is final and you ask only for line spacing and page numbers to match the template, Codex can go straight to formatting.
+
 ## Installation options and verification
 
-The quick-start commands install [release v1.0.0](https://github.com/gzh60199/paper-skill-guide/releases/tag/v1.0.0). To install from the development branch, replace `--ref v1.0.0` with `--ref main` in the first command.
+The quick-start commands install [release v1.1.0](https://github.com/gzh60199/paper-skill-guide/releases/tag/v1.1.0). To install from the development branch, replace `--ref v1.1.0` with `--ref main` in the first command.
 
 **Install from a local checkout.** Choose this option to inspect or edit the recommendation workflow. Register the local source from the repository root, which contains `.agents/plugins/marketplace.json`.
 
@@ -61,6 +67,12 @@ Look for `paper-skill-guide@paper-skill-guide` in the `installed` list and check
 The guide checks the personal, project, and plugin-provided skills visible in your current working directory. It reads the instructions for promising candidates and usually compares about three distinct options. If only one fits, it recommends that one. If none fits, it explains what is missing. You choose which skills to install and enable in your collection.
 
 The guide normally uses the current session’s skill list. If the list is incomplete or a skill was just installed, an optional Python 3 script can query the local `codex app-server` for skill names, descriptions, and entry-point paths. Only that refresh step requires Python 3 and the Codex CLI on your PATH. [Recommendation workflow](plugins/paper-skill-guide/skills/choose-paper-skills/SKILL.md) · [Skill discovery script](plugins/paper-skill-guide/skills/choose-paper-skills/scripts/list_enabled_skills.py)
+
+## Optional: make this your default writing workflow
+
+To make this workflow a default in new chats, append the instruction below to your own `~/.codex/AGENTS.md` and start a new chat. If you set `CODEX_HOME`, use the `AGENTS.md` in that directory. A normal plugin installation leaves this global file untouched.
+
+> For course papers, literature reviews, or course reflection reports, start with `$paper-skill-guide:choose-paper-skills` to compare skills, even when I provide a template. Proceed directly if I name a skill, choose an option, or delegate the choice. Use the selected skills for content and my template for layout. Handle formatting-only and explanation-only requests directly.
 
 ## FAQ
 
