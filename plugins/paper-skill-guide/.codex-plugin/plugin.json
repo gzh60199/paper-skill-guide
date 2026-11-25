@@ -1,0 +1,21 @@
+{
+  "name": "paper-skill-guide",
+  "version": "1.0.0",
+  "description": "根据论文写作目标和现有材料，比较当前 Codex 可用技能，执行用户选择的单项或组合。",
+  "author": {
+    "name": "gzh60199"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "论文技能推荐",
+    "shortDescription": "比较适合当前论文任务的本地技能",
+    "longDescription": "比较选题、综述、起草、修订及汇报任务中的可用技能。按交付要求说明差异与组合方式，支持自行选择或委托 Codex 执行。",
+    "developerName": "gzh60199",
+    "category": "Education & Research",
+    "capabilities": [],
+    "defaultPrompt": [
+      "我准备写一篇课程综述，帮我比较适合的本地技能。",
+      "我要整合文献、写综述并做汇报。请推荐可执行的技能组合。"
+    ]
+  }
+}

@@ -1,2 +1,35 @@
-# paper-skill-guide
-论文技能推荐 · A Codex plugin that compares available local skills for academic writing and literature reviews.
+# 论文技能推荐 · Paper Skill Guide
+
+在 Codex 中写论文、定综述题目或回复审稿意见时，根据**当前项目实际可用的技能**比较可行做法。你可以选择一个技能、接受一个组合，或让 Codex 选好后直接开始。
+
+## 安装
+
+在能运行 `codex plugin` 的终端中执行：
+
+```sh
+codex plugin marketplace add gzh60199/paper-skill-guide --ref main
+codex plugin add paper-skill-guide@paper-skill-guide
+```
+
+打开新的 Codex 对话，输入下方示例即可使用。自然语言匹配由 Codex 判断。需要指定这个入口时，点名 `$paper-skill-guide:choose-paper-skills`。可用 `codex plugin list --marketplace paper-skill-guide` 检查安装状态。
+
+## 使用示例
+
+> 我有 12 篇关于图像分类的论文，需要在三周内写一篇 4000 字的课程综述。先帮我确定题目。
+
+如果你的技能库同时有文献综述、选题和论文写作技能，插件可以比较三条路径：从已有文献找共同问题、从个人兴趣收窄研究范围、从课程要求倒推论文结构。它会列出本机的实际技能名，说明每项需要的材料、预期产物和取舍。回复编号即可开始，也可以说“先梳理文献，再收窄题目，按推荐组合来”。
+
+> 我已有筛选记录和初稿。请你来选技能，先整理审稿人对文献覆盖面的意见，再起草回复。
+
+明确委托代选时，插件会说明选择理由，直接开始能做的工作。已点名某个执行技能时，会沿用你的选择。单纯询问一篇论文里的术语时，可以直接获得解释。
+
+## 技能发现与兼容性
+
+- 通常推荐三个左右有实质差异的候选。只有一个适合时就展示一个。缺少适合当前阶段的技能时，说明缺口并给出可行的下一步。
+- 候选来自已启用的个人、项目及插件技能。这个插件不要求一套预装的学术技能，也不会替你下载安装候选技能。
+- 默认读取当前会话的技能清单。需要刷新时，附带的可选 Python 3 脚本通过本机 `codex app-server` 查询当前项目。它读取技能名称、说明和入口路径。使用这个脚本需要 Python 3 和 PATH 中的 Codex CLI。
+- 主要面向中文写作；Windows 下已验证安装。实际可交付的文献、正文、图表或幻灯片取决于可用技能、工具和用户提供的材料。
+
+## 许可
+
+项目由 **gzh60199** 维护，采用 [MIT 许可证](LICENSE)。

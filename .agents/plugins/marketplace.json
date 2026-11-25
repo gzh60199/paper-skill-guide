@@ -1,0 +1,20 @@
+{
+  "name": "paper-skill-guide",
+  "interface": {
+    "displayName": "Paper Skill Guide"
+  },
+  "plugins": [
+    {
+      "name": "paper-skill-guide",
+      "source": {
+        "source": "local",
+        "path": "./plugins/paper-skill-guide"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education & Research"
+    }
+  ]
+}
